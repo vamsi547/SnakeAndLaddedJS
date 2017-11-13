@@ -7,11 +7,11 @@ class Blocks extends Component {
                 startIndex = 10*(startIndex-1) + 1;
                 if(reverse) {
                         for(var index = startIndex + 9; index >= startIndex; index--) {
-                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)} ref={index}></Block>);
+                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)}></Block>);
                         }
                 } else {
                         for(index = startIndex; index <= startIndex + 9; index++) {
-                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)} ref={index}></Block>);
+                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)}></Block>);
                         }
                 }
                 return blockMatrix;

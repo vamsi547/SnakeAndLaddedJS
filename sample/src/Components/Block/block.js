@@ -10,13 +10,14 @@ class Block extends Component {
                         var style = {width: 100/colors.length + '%', background: team.color, left: (100/colors.length) * index + '%'};
                         teamDisplay.push(<div className="teamBlock" style={style}></div>);
                 });
+                const contentColor = colors.length? 'white': 'black';
                 return (
                         <div className="block">
                                 { teamDisplay }
-                                <label className="content"> {number} </label>
+                                <label className="content" style={{color: contentColor}}> {number} </label>
                         </div>
                 )
         }        
 }
 
-export default Block;
+export default Block; 
