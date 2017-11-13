@@ -38,11 +38,13 @@ class Dice extends Component {
         }
 
         stopDice() {
-                clearInterval(this.state.interval);
+                clearInterval(this.state.interval);        
                 this.setState({
                         rolling: false,
                         interval: null
                 });
+                this.props.onSelect(this.state.dice);
+                
         }
 
 }

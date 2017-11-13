@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Block from '../Block/block';
 
-import { findDOMNode } from 'react-dom';
-
 class Blocks extends Component {
         getRowBlocks(startIndex, reverse) {
                 var blockMatrix = []; 

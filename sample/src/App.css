@@ -85,6 +85,24 @@
 }
 
 .dice-container .disabled-roll-button {
+  background: white;
   pointer-events: none;
+}
 
+.team-container {
+  position: absolute;
+  right: 85px;
+  top: 50px;  
+  text-align: center
+}
+
+.team-container .team-block-type {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+}
+
+.team-container .team-display {
+  font-weight: bold;
+  font-size: 20px;
 }
