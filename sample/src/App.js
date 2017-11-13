@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Popup from 'react-popup';
+import Popup from 'react-popup';
 import './App.css';
 import Blocks from './Components/Blocks/blocks';
 import Dice from './Components/Dice/dice';
@@ -11,15 +11,16 @@ class App extends Component {
     super(props); 
     this.state = {
       teamsMap : {
-            0: {color: 'red', val: 1},
-            1: {color:'blue', val: 1},
-            2: {color:'green', val: 1}
+            0: {color: 'red', val: 1, name: 'Raghu'},
+            1: {color:'blue', val: 1, name: 'Vamsi'},
+            2: {color:'green', val: 1, name: 'Raj'}
       },
+      teamCount: 3,
       currentTeam: 0
     };
     this.onDieSelect    = this.onDieSelect.bind(this);
     this.setCurrentTeam = this.setCurrentTeam.bind(this);
-    this.setTeamsMap    = this.setTeamsMap.bind(this);
+    this.setTeamsMap    = this.setTeamsMap.bind(this);    
   }
 
   render() {    
@@ -32,12 +33,12 @@ class App extends Component {
     );
   }
 
-  onDieSelect(diceValue) {    
+  onDieSelect(diceValue) {        
     var teamsMap = this.state.teamsMap;
     teamsMap[this.state.currentTeam].val += diceValue;
     this.setTeamsMap(teamsMap);
     if(diceValue !== 6) {
-      this.setCurrentTeam((this.state.currentTeam+1) % 3);
+      this.setCurrentTeam((this.state.currentTeam+1) % this.state.teamCount);
     }    
   }
 

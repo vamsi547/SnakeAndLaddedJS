@@ -9,14 +9,14 @@ class Team extends Component {
         }
 
         getCurrentTeam() {
-                return this.props.currentTeam;
+                return this.props.teamsMap[this.props.currentTeam].name;
         }
 
         getTeamBlock() {
                 var teams = Object.keys(this.props.teamsMap);
                 var teamBlocks = [];                
                 teams.forEach(function(teamId) {
-                        teamBlocks.push(<div style={{display: 'inline-block', 'margin-right': '5px'}}> <span> Team {teamId} </span><div className="team-block-type" style={{background: this.props.teamsMap[teamId].color}}></div></div>)
+                        teamBlocks.push(<div style={{display: 'inline-block', marginRight: '5px'}}> <span>  {this.props.teamsMap[teamId].name} </span><div className="team-block-type" style={{background: this.props.teamsMap[teamId].color}}></div></div>)
                 }.bind(this));
                 return teamBlocks;                
         }        
@@ -28,7 +28,7 @@ class Team extends Component {
                                         {this.getTeamBlock()}                                        
                                 </div>
                                 <div className="team-display">
-                                        Team { this.getCurrentTeam() }
+                                         { this.getCurrentTeam() }
                                 </div>
                         </div>
                 )

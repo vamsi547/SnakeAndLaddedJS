@@ -31,9 +31,6 @@ class Blocks extends Component {
                 return teams;
         }
 
-        componentDidMount() {                
-        }
-        
         render() {                
                 const blockMatrix = [];
                 
