@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 class Dice extends Component {
-        constructor() {
-                super();
+        constructor(props) {
+                super(props);
                 this.state = {
                         dice: 1,
                         interval: null,
-                        rolling: false
+                        rolling: false,
+                        disableDie: props.disableDie
                 }
                 this.onHit = this.onHit.bind(this);
                 this.changeDice = this.changeDice.bind(this);
@@ -17,10 +18,19 @@ class Dice extends Component {
                 return (
                         <div className="dice-container">
                                 <div className="block"><span className="content">{this.state.dice}</span></div>
-                                <div className="roll-container"><button className={ "roll-button " + (this.state.rolling? 'disabled-roll-button' : '') } onClick={this.onHit}> Roll </button></div>
+                                <div className="roll-container"><button className={ "roll-button " + (this.state.rolling || this.state.disableDie? 'disabled-roll-button' : '') } onClick={this.onHit}> Roll </button></div>
                         </div>
                 )
         }
+
+        componentWillReceiveProps(props) {
+                if(props.disableDie !== this.state.disableDie) {
+                        this.setState({
+                                disableDie: props.disableDie
+                        });
+                }
+        }
+
 
         onHit() {                
                 var interval  = setInterval(this.changeDice, 40);

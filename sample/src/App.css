@@ -84,9 +84,9 @@
   border: 1px solid #ddd;  
 }
 
-.dice-container .disabled-roll-button {
-  background: white;
+.dice-container .disabled-roll-button {  
   pointer-events: none;
+  display: none;
 }
 
 .team-container {
