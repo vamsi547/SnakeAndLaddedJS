@@ -20,12 +20,13 @@ class App extends Component {
       },
       teamCount: 3,
       disableDie: false,
-      currentTeam: 0,
+      currentTeam: 0
 
     };
-    this.onDieSelect    = this.onDieSelect.bind(this);
-    this.setCurrentTeam = this.setCurrentTeam.bind(this);
-    this.setTeamsMap    = this.setTeamsMap.bind(this);
+    this.onDieSelect       = this.onDieSelect.bind(this);
+    this.setCurrentTeam    = this.setCurrentTeam.bind(this);
+    this.setTeamsMap       = this.setTeamsMap.bind(this);
+    this.onSnakeLadderMove = this.onSnakeLadderMove.bind(this);
   }
 
   render() {    
@@ -38,17 +39,52 @@ class App extends Component {
     );
   }
 
+  onSnakeLadderMove(type, target) {
+    var teamsMap = this.state.teamsMap;    
+    var bonusBlockInterval = setInterval(function() {
+      if(teamsMap[this.state.currentTeam].val === target) {
+        clearInterval(bonusBlockInterval);
+        if(target === 100) {
+          // alert(this.state.currentTeam.)
+        }
+        if(type === 'ladder') {
+          alert(' Play again !!!');
+        } else {
+          this.setCurrentTeam((this.state.currentTeam+1) % this.state.teamCount);
+        }
+        this.setDisableDie(false);
+        return;
+      }
+      if(type === 'ladder') {
+        teamsMap[this.state.currentTeam].val += 1;
+      } else {        
+        teamsMap[this.state.currentTeam].val -= 1;
+      }
+      this.setTeamsMap(teamsMap);
+    }.bind(this), 250);
+  }
+
   onDieSelect(diceValue) {        
     var teamsMap = this.state.teamsMap;
     var finalValue = teamsMap[this.state.currentTeam].val + diceValue;
 
     this.setDisableDie(true);
+
     var blockMoveInterval =  setInterval(function() {
       if(teamsMap[this.state.currentTeam].val === finalValue) {
-        clearInterval(blockMoveInterval);
-        this.setDisableDie(false);
+        clearInterval(blockMoveInterval);        
+        if(diceValue === 6 || !this.state.specialBlocks[finalValue]) {
+          this.setDisableDie(false);
+        }
         if(diceValue !== 6) {
-          this.setCurrentTeam((this.state.currentTeam+1) % this.state.teamCount);
+          if(this.state.specialBlocks[finalValue]) {
+            var type = this.state.specialBlocks[finalValue].type;
+            var target = this.state.specialBlocks[finalValue].target;
+            alert(' Got a ' + (type === 'ladder' ? 'Bonus' : 'Loss')+ ' !!!');
+            this.onSnakeLadderMove(type, target);
+          } else {
+            this.setCurrentTeam((this.state.currentTeam+1) % this.state.teamCount);
+          }          
         }
         return;
       }
