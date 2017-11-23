@@ -4,6 +4,7 @@ class Block extends Component {
         render() {
                 const number = this.props.val;
                 const colors = this.props.colors || [];
+                // const options = this.props.options;
                 const teamDisplay = [];                
 
                 colors.forEach(function(team, index) {
@@ -14,10 +15,29 @@ class Block extends Component {
                 return (
                         <div className="block">
                                 { teamDisplay }
-                                <label className="content" style={{color: contentColor}}> {number} </label>
+                                {/* <label className="content" style={{color: contentColor}}> {number} </label> */}
+                                {this.constructLabel(contentColor, number)}
                         </div>
                 )
-        }        
+        }   
+        
+        constructor(props) {
+                super(props);
+                this.constructLabel.bind(this);
+        }
+
+        constructLabel(color, val) {
+                var label = [];
+                label.push(<label className="content" style={{color: color}}> {val} </label>);
+                if(this.props.options && this.props.options.type === 'ladder') {
+                        label.push(<span className='ladder'> { this.props.options.target } </span>);
+                } else if(this.props.options && this.props.options.type === 'snake') {
+                        label.push(<span className='snake'> { this.props.options.target } </span>);
+                } else {
+                        // If any other case in future
+                }
+                return label;
+        }
 }
 
 export default Block; 

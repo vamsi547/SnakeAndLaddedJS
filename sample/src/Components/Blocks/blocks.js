@@ -4,17 +4,22 @@ import Block from '../Block/block';
 class Blocks extends Component {
         getRowBlocks(startIndex, reverse) {
                 var blockMatrix = []; 
+                var specialBlocks = this.props.specialBlocks;
                 startIndex = 10*(startIndex-1) + 1;
                 if(reverse) {
                         for(var index = startIndex + 9; index >= startIndex; index--) {
-                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)}></Block>);
+                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)} options={specialBlocks[index]}></Block>);
                         }
                 } else {
                         for(index = startIndex; index <= startIndex + 9; index++) {
-                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)}></Block>);
+                                blockMatrix.push(<Block val={index} colors={this.getCurrentTeams(index)} options={specialBlocks[index]}></Block>);
                         }
                 }
                 return blockMatrix;
+        }
+
+        getBlockOptions(val) {
+                return this.props.specialBlocks[val];
         }
 
         getCurrentTeams(val) {

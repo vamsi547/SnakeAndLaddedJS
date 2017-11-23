@@ -15,6 +15,9 @@ class App extends Component {
             1: {color:'blue', val: 1, name: 'Vamsi'},
             2: {color:'green', val: 1, name: 'Raj'}
       },
+      specialBlocks: {
+        4: {type: 'ladder', target: 14}, 9: {type: 'ladder', target: 31}, 13: {type: 'ladder', target: 84}, 21: {type: 'ladder', target: 42}, 36: {type: 'ladder', target: 44}, 51: {type: 'ladder', target: 67}, 71: {type: 'ladder', target: 91}, 80: {type: 'ladder', target: 100}, 98: {type: 'snake', target: 78}, 95: {type: 'snake', target: 75}, 93: {type: 'snake', target: 73}, 87: {type: 'snake', target: 24}, 64: {type: 'snake', target: 60}, 56: {type: 'snake', target: 53}, 47: {type: 'snake', target: 26}, 49: {type: 'snake', target: 11}, 16: {type: 'snake', target: 5}
+      },
       teamCount: 3,
       disableDie: false,
       currentTeam: 0,
@@ -28,7 +31,7 @@ class App extends Component {
   render() {    
     return (
       <div className="App">
-          <Blocks teams={this.state.teamsMap}></Blocks>
+          <Blocks teams={this.state.teamsMap} specialBlocks={this.state.specialBlocks}></Blocks>
           <Team currentTeam={this.state.currentTeam} teamsMap={this.state.teamsMap}></Team>
           <Dice onSelect={this.onDieSelect} disableDie={this.state.disableDie}></Dice>
       </div>
@@ -38,7 +41,7 @@ class App extends Component {
   onDieSelect(diceValue) {        
     var teamsMap = this.state.teamsMap;
     var finalValue = teamsMap[this.state.currentTeam].val + diceValue;
-    
+
     this.setDisableDie(true);
     var blockMoveInterval =  setInterval(function() {
       if(teamsMap[this.state.currentTeam].val === finalValue) {

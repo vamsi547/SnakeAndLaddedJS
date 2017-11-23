@@ -48,6 +48,34 @@
   font-weight: bold;
 }
 
+.block .ladder {
+  position: absolute;
+  bottom: 0px;
+  right: -1px;
+  display: inline-block;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-radius: 5px;
+  color: white;
+  background: brown;
+  font-size: 14px;
+}
+
+
+.block .snake {
+  position: absolute;
+  bottom: 0px;
+  right: -1px;
+  display: inline-block;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-radius: 5px;
+  color: white;
+  background: violet;
+  font-size: 14px;
+}
+
+
 .teamBlock {
   height: 100%;
   position: absolute;
