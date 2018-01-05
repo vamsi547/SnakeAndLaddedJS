@@ -1,0 +1,19 @@
+what
+why
+how
+when
+
+Comparision with other frameworks
+
+Specialities
+
+bench marks
+
+
+ideas: 
+list with updation every 10 seconds both in react and angular 2
+react redux data model
+component life cycle
+
+
+virtual dom

@@ -50,12 +50,14 @@
 
 .block .ladder {
   position: absolute;
+  width: 25px;
+  height: 15px;
   bottom: 0px;
   right: -1px;
   display: inline-block;
   border-top: 1px solid;
   border-left: 1px solid;
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
   color: white;
   background: brown;
   font-size: 14px;
@@ -64,12 +66,14 @@
 
 .block .snake {
   position: absolute;
+  width: 25px;
+  height: 15px;
   bottom: 0px;
   right: -1px;
   display: inline-block;
   border-top: 1px solid;
   border-left: 1px solid;
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
   color: white;
   background: violet;
   font-size: 14px;
