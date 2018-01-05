@@ -96,7 +96,7 @@ class App extends Component {
     var blockMoveInterval =  setInterval(function() {
       if(teamsMap[this.state.currentTeam].val === finalValue) {
         clearInterval(blockMoveInterval);        
-        if(diceValue === 6 || !this.state.specialBlocks[finalValue]) {
+        if(diceValue === 6 || !this.state.specialBlocks[finalValue]) {          
           this.setDisableDie(false);
         }
         if(diceValue !== 6) {
@@ -108,6 +108,8 @@ class App extends Component {
           } else {
             this.setCurrentTeam((this.state.currentTeam+1) % this.state.teamCount);
           }          
+        } else {
+          alert(' Play again !!!');
         }
         return;
       }
