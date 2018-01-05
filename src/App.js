@@ -13,9 +13,9 @@ class App extends Component {
     super(props); 
     this.state = {
       teamsMap : {
-            0: {color: 'red', val: 1, name: 'Raghu'},
-            1: {color:'blue', val: 1, name: 'Vamsi'},
-            2: {color:'green', val: 1, name: 'Raj'}
+            0: {color: 'red', val: 1, name: 'Player 1'},
+            1: {color:'blue', val: 1, name: 'Player 2'},
+            2: {color:'green', val: 1, name: 'Player 3'}
       },
       specialBlocks: {
         // 2: {type: 'ladder', target: 100}, 3: {type: 'ladder', target: 100}, 4: {type: 'ladder', target: 100}, 5: {type: 'ladder', target: 100}, 9: {type: 'ladder', target: 100}, 13: {type: 'ladder', target: 84}, 21: {type: 'ladder', target: 42}, 36: {type: 'ladder', target: 44}, 51: {type: 'ladder', target: 67}, 71: {type: 'ladder', target: 91}, 80: {type: 'ladder', target: 100}, 98: {type: 'snake', target: 78}, 95: {type: 'snake', target: 75}, 93: {type: 'snake', target: 73}, 87: {type: 'snake', target: 24}, 64: {type: 'snake', target: 60}, 56: {type: 'snake', target: 53}, 47: {type: 'snake', target: 26}, 49: {type: 'snake', target: 11}, 16: {type: 'snake', target: 5}
