@@ -1,4 +1,4 @@
 
-## Snake And Ladded Using React 
+## Snake And Ladder Using React 
 
 Play here https://my-snake-ladder.herokuapp.com/
